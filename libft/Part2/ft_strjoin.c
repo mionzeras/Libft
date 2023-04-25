@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 20:18:03 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/25 17:39:10 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/04/25 17:50:38 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/04/25 19:36:50 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*sub;
+	size_t		soma;
+	char	*s3;
 
-	if (!s)
+	soma = ft_strlen(s1) + ft_strlen(s2);
+	s3 = malloc(sizeof(soma));
+	if (!s3)
 		return (NULL);
-	if (start > ft_strlen(s))
-	{
-		sub = malloc(1);
-		sub[0] = '\0';
-		return (sub);
-	}
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
-	sub = (char *)malloc(len + 1);
-	if (!sub)
-		return (NULL);
-	ft_strlcpy(sub, s + start, len + 1);
-	return (sub);
+	ft_strlcat(s3, s1, soma);
+	ft_strlcat(s3, s2, soma + 1);
+	return (s3);
 }
+
+
+
+
+
+
+
+
+//void	*ft_memcpy(void *dest, const void *src, size_t n)
