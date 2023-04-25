@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 15:18:53 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:35:55 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/04/24 19:48:24 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/04/24 20:11:22 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strdup(const char *s)
 {
-	size_t	j;
-	size_t	i;
+	char	*str2;
+	int		i;
 
-	if (*little == '\0')
-	{
-		return ((char *) big);
-	}
+	str2 = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	i = 0;
-	while (big[i] && i < len)
+	if (!str2)
 	{
-		j = 0;
-		while (little[j] && big[i + j] && little[j] == big[i + j]
-			&& (i + j) < len)
-			j++;
-		if (little[j] == '\0')
-		{
-			return ((char *)big + i);
-		}
+		return (NULL);
+	}
+	while (s[i])
+	{
+		str2[i] = s[i];
 		i++;
 	}
-	return (NULL);
+	str2[i] = '\0';
+	return (str2);
 }

@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 15:18:53 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:35:55 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/04/24 16:25:14 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/04/24 20:09:16 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int	ft_atoi(const char *nptr)
 {
-	size_t	j;
-	size_t	i;
+	int	i;
+	int	sign;
+	int	result;
 
-	if (*little == '\0')
-	{
-		return ((char *) big);
-	}
 	i = 0;
-	while (big[i] && i < len)
+	sign = 1;
+	result = 0;
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	while (nptr[i] == '+' || nptr[i] == '-')
 	{
-		j = 0;
-		while (little[j] && big[i + j] && little[j] == big[i + j]
-			&& (i + j) < len)
-			j++;
-		if (little[j] == '\0')
-		{
-			return ((char *)big + i);
-		}
+		if (nptr[i + 1] == '-' || nptr[i + 1] == '+')
+			return (0);
+		else if (nptr[i] == '-')
+			sign = -1;
 		i++;
 	}
-	return (NULL);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10;
+		result = result + (nptr[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }

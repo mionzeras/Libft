@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 15:18:53 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:35:55 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/04/24 20:18:03 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/04/24 21:05:21 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	j;
-	size_t	i;
+	unsigned int	i;
+	unsigned int	j;
+	char		*sub;
 
-	if (*little == '\0')
-	{
-		return ((char *) big);
-	}
 	i = 0;
-	while (big[i] && i < len)
+	j = 0;
+	sub = (char *)malloc((len + 1) * sizeof(char));
+	if (!sub)
+		return (NULL);
+	while (s[i])
 	{
-		j = 0;
-		while (little[j] && big[i + j] && little[j] == big[i + j]
-			&& (i + j) < len)
-			j++;
-		if (little[j] == '\0')
+		if (i >= start && j < len)
 		{
-			return ((char *)big + i);
+			sub[j] = s[i];
+			j++;
 		}
 		i++;
 	}
-	return (NULL);
+	sub[j] = '\0';
+	return (sub);
 }

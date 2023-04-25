@@ -6,7 +6,7 @@
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:12:12 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:37:11 by gcampos-         ###   ########.fr       */
+/*   Updated: 2023/04/24 20:13:50 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,15 +133,36 @@ int	main(void)
 	printf("%i\n", ft_memcmp(f4, f5, n1));
 
 	printf("\n------ func: ft_strnstr ------\n");
-	const char	small[] = "Campos Ro";
+	const char	small[] = "Campos ro";
 	const char	big[] = "Gabriel Augusto Campos Rodrigues";
 	char	*ptr3;
 
-	ptr3 = ft_strnstr(big, small, 4);
+	ptr3 = ft_strnstr(big, small, 40);
 	if (ptr3)
 		printf("'%s' encontrado em '%s'\n", small, big);
 	else
 		printf("'%s' não encontrado em '%s'\n", small, big);
 
-	return (0);
+	printf("\n------ func: ft_atoi ------\n");
+	char	f6[] = "\t\n\r\v\f  469 \n";
+	printf("%d\n", ft_atoi(f6));
+
+	printf("\n------ func: ft_calloc ------\n");
+	int		*ptr4;
+	
+	ptr4 = (int *)calloc(4, sizeof(int));
+	for (size_t i = 0; i < 4; i++)
+	{
+		printf("%p, %p\n", ptr4, &ptr4);
+	}
+	
+	printf("\n------ func: ft_strdup ------\n");
+	char	*f7;
+	char	*f8;
+	
+	f7 = "Gabriel Augusto";
+	f8 = "";
+	
+	f8 = ft_strdup(f7);
+	printf("%s\n", f8);
 }
