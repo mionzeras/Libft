@@ -6,7 +6,7 @@
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:12:12 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/24 20:13:50 by gcampos-         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:47:02 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int	main(void)
 	printf("%ld, %s\n", ft_strlcpy(recebe, frase, 3), recebe);
 
 	printf("\n------ func: ft_strlcat ------\n");
-	char	dest[] = "Hello ";
-	char	src[] = "World";
+	char	dest[14] = "123";
+	char	src[] = "456";
 	printf("%ld, %s\n", ft_strlcat(dest, src, 20), dest);
 
 	printf("\n------ func: ft_toupper ------\n");
@@ -165,4 +165,58 @@ int	main(void)
 	
 	f8 = ft_strdup(f7);
 	printf("%s\n", f8);
+
+	printf("\n------ func: ft_substr ------\n");
+	char *f9;
+	char *f10;
+	
+	f9 = "Gabriel Augusto";
+	f10 = ft_substr(f9, 3, 4);
+	printf("%s\n", f10);
+
+	printf("\n------ func: ft_strjoin ------\n");
+	char	*f11;
+	char	*f12;
+	char	*f13;
+
+	f11 = "Gabriel";
+	f12 = " Augusto";
+	f13 = ft_strjoin(f11, f12);
+	printf("%s\n", f13);
+
+	printf("\n------ func: ft_strtrim ------\n");
+	char	*f14;
+	char	*f15;
+
+	f14 = "aaacaaGabrielaaaaba";
+	f15 = ft_strtrim(f14, "abc");
+	printf("%s\n", f15);
+
+	printf("\n------ func: ft_split ------\n");
+	char	*f16;
+
+	f16 = "Gabriel Augusto Campos Rodrigues";
+	ft_split(f16, ' ');
+	printf("%s\n", f16);
+	
+	printf("\n------ func: ft_putchar_fd ------\n");
+	ft_putchar_fd('H', 1);
+	printf("\n");
+	
+	printf("\n------ func: ft_putstr_fd ------\n");
+	char	*f17;
+
+	f17 = "Helloooo";
+	ft_putstr_fd(f17, 1);
+
+	printf("\n------ func: ft_putendl_fd ------\n");
+	char	*f18;
+
+	f18 = "Helloooo";
+	ft_putendl_fd(f18, 1);
+	
+	printf("\n------ func: ft_itoa ------\n");
+	
+
+	printf("\n------ func: ft_strmapi ------\n");
 }
