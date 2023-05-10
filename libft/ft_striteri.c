@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 14:45:55 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/14 15:17:43 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/05/03 15:23:26 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/05/05 17:53:24 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	size_t	j;
-	size_t	dst_len;
-	size_t	src_len;
+	int	i;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	i = dst_len;
-	j = 0;
-	if (size <= dst_len)
-		return (size + src_len);
-	while (i < size - 1 && src[j])
+	i = 0;
+	while (s[i])
 	{
-		dst[i] = src[j];
+		f(i, &s[i]);
 		i++;
-		j++;
 	}
-	dst[i] = '\0';
-	return (dst_len + src_len);
 }

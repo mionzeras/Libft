@@ -6,7 +6,7 @@
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:12:12 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/05/03 14:47:02 by gcampos-         ###   ########.fr       */
+/*   Updated: 2023/05/10 12:20:24 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,11 +150,8 @@ int	main(void)
 	printf("\n------ func: ft_calloc ------\n");
 	int		*ptr4;
 	
-	ptr4 = (int *)calloc(4, sizeof(int));
-	for (size_t i = 0; i < 4; i++)
-	{
-		printf("%p, %p\n", ptr4, &ptr4);
-	}
+	ptr4 = (int *)ft_calloc(4, sizeof(int));
+	printf("%p, %p\n", ptr4, &ptr4);
 	
 	printf("\n------ func: ft_strdup ------\n");
 	char	*f7;

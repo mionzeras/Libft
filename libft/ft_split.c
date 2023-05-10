@@ -6,36 +6,38 @@
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:06:54 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/04/27 16:37:09 by gcampos-         ###   ########.fr       */
+/*   Updated: 2023/05/10 12:26:27 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//count words in string
 int	count_wrd(char const *s, char c)
 {
 	int	i;
-	int	j;
+	int	count;
 
 	i = 0;
-	j = 0;
+	count = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c && (i == 0 || s[i - 1] == c))
 		{
-			j++;
+			count++;
 		}
 		i++;
 	}
-	return (j);
+	return (count);
 }
 
-size_t	cliw(const char *str, char value)
+//count letters in words
+size_t	cliw(const char *str, char c)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i] && str[i] != value)
+	while (str[i] && str[i] != c)
 		i++;
 	return (i);
 }
@@ -47,13 +49,13 @@ char	**ft_split(char const *s, char c)
 	size_t	wrd_size;
 	char	**str_final;
 
+	i = 0;
 	if (!s)
 		return (NULL);
 	str_size = count_wrd(s, c);
 	str_final = malloc((str_size + 1) * sizeof(char *));
 	if (!str_final)
 		return (NULL);
-	i = 0;
 	while (i < str_size)
 	{
 		while (*s && *s == c)

@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 16:12:46 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/05/09 16:41:23 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/04/14 14:45:55 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/04/26 19:31:33 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_list	*new;
+	size_t	i;
+	size_t	j;
+	size_t	dst_len;
+	size_t	src_len;
 
-
-	while (lst)
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = dst_len;
+	j = 0;
+	if (size <= dst_len)
+		return (size + src_len);
+	while (i < size - 1 && src[j])
 	{
-		new = malloc(sizeof(t_list));
-		if (!new)
-		{
-			ft_lstclear(&new, del);
-			free(new);
-			return (NULL);
-		}
-			new->content = f(lst->content);
-			lst = lst->next;
-			new = new->next;
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
-	return (new);
+	dst[i] = '\0';
+	return (dst_len + src_len);
 }

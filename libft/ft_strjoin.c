@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 09:59:42 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/05/09 12:34:22 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/04/25 17:50:38 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/04/26 19:06:45 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	new->next = *lst;
-	*lst = new;
+	size_t		len1;
+	size_t		len2;
+	char		*s3;
+	size_t		soma;
+
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	soma = len1 + len2;
+	s3 = (char *)malloc(sizeof(char) * (soma + 1));
+	if (!s3)
+		return (NULL);
+	ft_memcpy(s3, s1, len1);
+	ft_memcpy(s3 + len1, s2, len2);
+	s3[soma] = '\0';
+	return (s3);
 }
