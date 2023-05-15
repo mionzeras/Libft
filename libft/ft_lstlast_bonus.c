@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:08:22 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/05/10 12:50:00 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/05/09 11:42:15 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/05/09 14:44:42 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*p;
-	size_t	i;
-
-	p = s;
-	i = 0;
-	while (i < n)
+	if (lst == NULL)
+		return (lst);
+	while (lst)
 	{
-		p[i] = '\0';
-		i++;
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
 	}
+	return (lst);
 }
