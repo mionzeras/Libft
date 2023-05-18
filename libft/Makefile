@@ -35,9 +35,6 @@ clean:
 fclean: clean
 		${RM} ${NAME}
 
-tclean: clean
-		${RM}
-
 re: fclean all
 
 .PHONY: all clean fclean tclean re
