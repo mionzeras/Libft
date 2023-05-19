@@ -50,7 +50,8 @@ fclean: clean
 		@${RM} ${NAME}
 
 #recompile all files if any changes are made to the source files or header files in the project directory or any subdirectory.
-re: fclean all 
+re: fclean all
+		@echo "Recompiling"
 
 # make sure we can compile correctly, even when we have files with those names.
 .PHONY: all clean fclean re

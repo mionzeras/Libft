@@ -1,21 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_pf_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 11:56:54 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/05/19 14:54:14 by gcampos-         ###   ########.fr       */
+/*   Created: 2023/05/18 15:17:03 by gcampos-          #+#    #+#             */
+/*   Updated: 2023/05/19 15:49:11 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	pf_putchar(char c)
 {
-	if (!*lst)
-		*lst = new;
-	else
-		ft_lstlast(*lst)->next = new;
+	write(1, &c, 1);
+	return (1);
+}
+
+int	pf_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (pf_putstr("(null)"));
+	while (str[i])
+	{
+		pf_putchar(str[i]);
+		i++;
+	}
+	return (i);
+}
+
+int	pf_putnbr(int nb)
+{
+	char	*str;
+	int		i;
+
+	str = ft_itoa(nb);
+	i = pf_putstr(str);
+	free(str);
+	return (i);
 }
