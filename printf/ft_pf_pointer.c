@@ -6,7 +6,7 @@
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:19:03 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/05/19 16:31:54 by gcampos-         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:28:13 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,7 @@ int	pf_putptr(unsigned long long nb, const char fs)
 		if (nb <= 9)
 			pf_putchar(nb + '0');
 		else
-		{
-			if (fs == 'x')
-				pf_putchar(nb - 10 + 'a');
-			else
-				pf_putchar(nb - 10 + 'A');
-		}
+			pf_putchar(nb - 10 + 'a');
 	}
 	return (pf_ptrlen(nb));
 }

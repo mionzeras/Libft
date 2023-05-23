@@ -23,6 +23,7 @@ all:	${NAME}
 clean:
 		@echo "Cleaning"
 		@${RM} ${OBJS}
+		
 
 fclean: clean
 		@echo "Cleaning headers"
