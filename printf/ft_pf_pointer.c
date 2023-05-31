@@ -6,7 +6,7 @@
 /*   By: gcampos- <gcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:19:03 by gcampos-          #+#    #+#             */
-/*   Updated: 2023/05/23 15:28:13 by gcampos-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:34:50 by gcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int	pf_ptrlen(unsigned long long nb)
 	return (cont);
 }
 
-int	pf_putptr(unsigned long long nb, const char fs)
+int	pf_putptr(unsigned long long nb)
 {
 	if (nb == 0)
 		return (pf_putchar('0'));
 	if (nb >= 16)
 	{
-		pf_putptr(nb / 16, fs);
-		pf_putptr(nb % 16, fs);
+		pf_putptr(nb / 16);
+		pf_putptr(nb % 16);
 	}
 	else
 	{
@@ -52,6 +52,6 @@ int	pf_pointer(unsigned long long ptr)
 		return (pf_putstr("(nil)"));
 	cont = 0;
 	cont += pf_putstr("0x");
-	cont += pf_putptr(ptr, 'x');
+	cont += pf_putptr(ptr);
 	return (cont);
 }
