@@ -37,4 +37,7 @@ fclean: clean
 
 re: fclean all
 
+teste: all
+		${CC} ${FLAGS} ${INCLUDE} main.c ${NAME} -o teste
+
 .PHONY: all clean fclean tclean re
